@@ -1,5 +1,5 @@
 """
-Script for predicting drug synergy.
+Script for predicting genome-scale TF binding sites.
 Use `ANCHOR_sequence.py -h` to see descriptions of the arguments.
 """
 
@@ -68,7 +68,7 @@ def main():
             args.output + 'seq_reverse_top3/'
         os.system(cmd)
 
-    # step12: select the top 4 out of the top 6 = 3forward + 3reverse scores
+    # step12: select the top 4 out of the top 6 = 3forward + 3reverse scores; 10 minutes per TF
     for the_tf in args.tf:
         cmd = 'perl ./preprocess/sequence/find_max_forward_reverse_top_4.pl ' + \
             args.output + 'seq_forward_top3/ ' + \
@@ -76,14 +76,14 @@ def main():
             args.output + 'seq_top4/'
         os.system(cmd)
 
-    # step13: rank the features to 0-1
+    # step13: rank the features to 0-1; 10 minutes per TF
     for the_tf in args.tf:
         cmd = 'perl ./preprocess/sequence/create_top4_rank_ru.pl ' + \
             args.output + 'seq_top4/ ' + \
             args.output + 'seq_top4_rank/'
         os.system(cmd)
 
-    # step14: generate the 32 neighboring ranked features
+    # step14: generate the 32 neighboring ranked features; 80 minutes per TF
     for the_tf in args.tf:
         cmd = 'perl ./preprocess/sequence/create_largespace_tomax_top4_rank.pl ' + \
             args.output + 'seq_top4_rank/ ' + \

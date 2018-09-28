@@ -1,5 +1,5 @@
 """
-Script for predicting drug synergy.
+Script for predicting genome-scale TF binding sites.
 Use `ANCHOR_gencode.py -h` to see descriptions of the arguments.
 """
 
