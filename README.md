@@ -171,7 +171,7 @@ perl ./preprocess/dnase/transform_bam_to_track.pl ./data/dnase_aln/ ./data/dnase
 
 step2: sum raw reads from all tech/bio replicates and separate them into 23 chromsomes; 15-20 hours perl cell line
 ```
-perl ccreate_DNAse_avg_track_by_chr.pl H1-hESC ./data/dnase_track/ ./data/dnase_track_avg/
+perl ccreate_DNase_avg_track_by_chr.pl H1-hESC ./data/dnase_track/ ./data/dnase_track_avg/
 ```
 
 step3: subsample 1/1000 and rank reads of all chrs for the multi-cell quantile normalization; 30-60 minutes perl cell line
@@ -201,41 +201,41 @@ chr1  700 900
 ```
 the blacklist can downloaded from here: https://sites.google.com/site/anshulkundaje/projects/blacklists
 ```
-perl ./preprocess/dnase/create_DNAse_mmm.pl H1-hESC ./data/dnase_track_avg_anchor/ ./data/anchor_bam_dnase/ ./data/anchor_bam_dnase_max_min/ ./data/ref/test_regions.blacklistfiltered.bed
+perl ./preprocess/dnase/create_DNase_mmm.pl H1-hESC ./data/dnase_track_avg_anchor/ ./data/anchor_bam_dnase/ ./data/anchor_bam_dnase_max_min/ ./data/ref/test_regions.blacklistfiltered.bed
 ```
 
 step6.2: generate the delta- mean feature; 40 minutes for the DNase-seq data of 13 cell lines
 
 prepare the anchor_bam_dnase from multiple cell line first - the step caculate the differences across cell lines
 ```
-perl ./preprocess/dnase/create_DNAse_diff.pl ./data/anchor_bam_dnase/ ./data/anchor_bam_dnase_diff/
+perl ./preprocess/dnase/create_DNase_diff.pl ./data/anchor_bam_dnase/ ./data/anchor_bam_dnase_diff/
 ```
 
 step6.3: generate the delta- max, min features; 100 minutes for the DNase-seq data of 13 cell lines
 
 prepare the anchor_bam_dnase_max_min from multiple cell line first - the step caculate the differences across cell lines
 ```
-perl ./preprocess/dnase/create_DNAse_max_min_diff.pl ./data/anchor_bam_dnase_max_min/ ./data/anchor_bam_dnase_max_min_diff/
+perl ./preprocess/dnase/create_DNase_max_min_diff.pl ./data/anchor_bam_dnase_max_min/ ./data/anchor_bam_dnase_max_min_diff/
 ```
 
 step6.4: generate the 15 neighboring mean features; 30 minutes per cell line
 ```
-perl ./preprocess/dnase/create_DNAse_largespace.pl ./data/anchor_bam_dnase/ ./data/anchor_bam_dnase_largespace/ 
+perl ./preprocess/dnase/create_DNase_largespace.pl ./data/anchor_bam_dnase/ ./data/anchor_bam_dnase_largespace/ 
 ```
 
 step6.5: generate the 30 neighboring max and min features; 60 minutes per cell line
 ```
-perl ./preprocess/dnase/create_DNAse_max_min_largespace.pl ./data/anchor_bam_dnase_max_min/ ./data/anchor_bam_dnase_max_min_largespace/
+perl ./preprocess/dnase/create_DNase_max_min_largespace.pl ./data/anchor_bam_dnase_max_min/ ./data/anchor_bam_dnase_max_min_largespace/
 ```
 
 step6.6: generate the 15 neighboring delta-mean features; 30 minutes per cell line
 ```
-perl ./preprocess/dnase/create_DNAse_largespace.pl ./data/anchor_bam_dnase_diff/ ./data/anchor_bam_dnase_diff_largespace/
+perl ./preprocess/dnase/create_DNase_largespace.pl ./data/anchor_bam_dnase_diff/ ./data/anchor_bam_dnase_diff_largespace/
 ```
 
 step6.7: generate the 30 neighboring delta-max and delta-min features; 60 minutes per cell line
 ```
-perl ./preprocess/dnase/create_DNAse_max_min_largespace.pl ./data/anchor_bam_dnase_max_min_diff/ ./data/anchor_bam_dnase_max_min_diff_largespace/
+perl ./preprocess/dnase/create_DNase_max_min_largespace.pl ./data/anchor_bam_dnase_max_min_diff/ ./data/anchor_bam_dnase_max_min_diff_largespace/
 ```
 
 from here fold-enrichement frequency feature
@@ -249,27 +249,27 @@ step8: count the number of signal occurance and ignore values to generate freque
 
 the reference file of the genomic coordinates excluding blacklisted regions is needed
 ```
-perl ./preprocess/dnase/produce_orange.pl H1-hESC ./data/dnase_fold_coverage_big/ ./data/orange/ ./data/ref/test_regions.blacklistfiltered.bed
+perl ./preprocess/dnase/produce_frequency.pl H1-hESC ./data/dnase_fold_coverage_big/ ./data/frequency/ ./data/ref/test_regions.blacklistfiltered.bed
 ```
  
 step9.1: generate the frequency feature by normalizing the counting number by ranking # 2 minutes per cell line
 ```
-perl ./preprocess/dnase/produce_orange_rank.pl ./data/orange/ ./data/orange_rank/
+perl ./preprocess/dnase/produce_frequency_rank.pl ./data/frequency/ ./data/frequency_rank/
 ```
 
 step9.2: generate the delta-frequency feature; 50 minutes for the DNase-seq data of 13 cell lines
 ```
-perl ./preprocess/dnase/create_orange_diff.pl ./data/orange_rank/ ./data/orange_rank_diff/
+perl ./preprocess/dnase/create_frequency_diff.pl ./data/frequency_rank/ ./data/frequency_rank_diff/
 ```
 
 step9.3: generate the 15 neighboring frequency features; 50 minutes per cell line
 ```
-perl ./preprocess/dnase/create_orange_largespace.pl ./data/orange_rank/ ./data/orange_rank_largespace/
+perl ./preprocess/dnase/create_frequency_largespace.pl ./data/frequency_rank/ ./data/frequency_rank_largespace/
 ```
 
 step9.4: generate the 15 neighboring delta- frequency features; 50 minutes per cell line
 ```
-perl ./preprocess/dnase/create_orange_largespace.pl ./data/orange_rank_diff/ ./data/orange_rank_diff_largespace/
+perl ./preprocess/dnase/create_frequency_largespace.pl ./data/frequency_rank_diff/ ./data/frequency_rank_diff_largespace/
 ```
 
 ### section2: sequence motif feature
