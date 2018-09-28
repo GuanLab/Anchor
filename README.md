@@ -27,14 +27,21 @@ git clone https://github.com/GuanLab/ANCHOR.git
 
 ## Required input files (and the corresponding directories to put them)
 Genomic coordinates
+
 * ./data/ref/ genomic coordinates under consideration (e.g. [test_regions.blacklistfiltered.bed](https://www.synapse.org/#!Synapse:syn6184308))
+
 DNase-seq data (e.g. [H1-hESC](https://www.encodeproject.org/experiments/ENCSR000EMU/))
+
 * ./data/dnase_aln/ read alignemnt BAM file (one or multiple replicates)
 * ./data/dnase_fold_coverage/ fold-enrichement signal coverage tracks Bigwig file
+
 DNA sequence and motif
+
 * ./data/hg_genome/ human genome sequence 
 * ./data/motif/ TF motifs (e.g. [motif](http://hocomoco11.autosome.ru/downloads_v11)) 
+
 Gencode
+
 * ./data/ref/ [gencode.v19.annotation.gtf](https://www.gencodegenes.org/releases/19.html)
 
 ## Prepare features and make predictions
