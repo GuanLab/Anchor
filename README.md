@@ -1,4 +1,4 @@
-#Anchor: Trans-cell Line Prediction of Transcription Factor Binding Sites
+## Anchor: Trans-cell Line Prediction of Transcription Factor Binding Sites
 
 This is the reimplementation of Yuanfang's winning algorithm in the ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction Challenge
 
@@ -148,7 +148,8 @@ The final predictions are saved here:
 ```
 ./prediction/anchor/final/
 ```
-
+---
+---
 ## Preprocessing Details
 ANCHOR preprocessing has many steps and requires a lot of time and space, since the original input data themselves are very large.
 For experienced users, the code of each step is available and you may run them individually without the ANCHOR_XXX.py interface.
