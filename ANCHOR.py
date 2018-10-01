@@ -11,7 +11,7 @@ def get_args():
         epilog='\n'.join(__doc__.strip().split('\n')[1:]).strip(),
         formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument('-tf', '--tf', default='TAF1', nargs='+',type=str,
-        help='TFs under consideration (e.g. TAF1')
+        help='The Trascription Factor to predict (e.g. TAF1)')
     parser.add_argument('-cell', '--cell_line', default='H1-hESC', type=str,
         help='The cell line name of the DNase-seq data')
     args = parser.parse_args()
