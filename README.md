@@ -14,7 +14,7 @@ Please contact (gyuanfan@umich.edu or hyangl@umich.edu) if you have any question
 Git clone a copy of ANCHOR:
 
 ```
-git clone https://github.com/GuanLab/ANCHOR.git
+git clone https://github.com/GuanLab/Anchor.git
 ```
 ## Required dependencies
 * [perl](https://www.perl.org/) (5.10.1)
