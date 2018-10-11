@@ -1,6 +1,6 @@
 ## Anchor: Trans-cell Line Prediction of Transcription Factor Binding Sites
 
-This is the reimplementation of Yuanfang's winning algorithm in the ENCODE-DREAM *in vivo* Transcription Factor Binding Site Prediction Challenge
+This is the package of Yuanfang's winning algorithm in the ENCODE-DREAM *in vivo* Transcription Factor Binding Site Prediction Challenge
 
 background: [ENCODE-DREAM](https://www.synapse.org/#!Synapse:syn6131484)
 
