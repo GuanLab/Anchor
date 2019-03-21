@@ -316,7 +316,9 @@ The format of ChIP-seq labels (U/B stands for Unbound/Bound) is tab-separated as
 | chr10 | 700   | 900  | B       | U       |
 | chr10 | 750   | 950  | U       | U       |
 
-**step1**. subsample labels (keep all Bound intervals and subsample the Unbound intervals)
+**step1**. subsample labels (keep all Bound intervals and subsample the Unbound intervals to balance the data)
+
+Of note, the default subsampling rate is 1/300, roughly corresponding to the percentage of Bound intervals. You can change the rate at line 41 "$rand=rand(300);" based on your data.
 ```
 perl ./train/create_sample.pl E2F1
 ```
