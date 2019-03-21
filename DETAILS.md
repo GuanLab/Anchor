@@ -301,8 +301,41 @@ perl ./preprocess/sequence/create_largespace_tomax_top4_rank.pl ./data/seq_top4_
 ```
 perl ./preprocess/gencode/create_gene_distance_top20_uniq.pl ./data/top_20 ./data/ref/gencode.v19.annotation.gtf ./data/ref/test_regions.blacklistfiltered.bed
 ```
+---
+## Model training
+Here is the pipeline for model training using the F model (single-motif model) as an example. To train other G/H/I models, simply run the corresponding "xxx_G.pl" scripts in step 3 and 4.
 
+**step0**. prepare ChIP-seq labels (e.g. E2F1.train.labels.tsv) for model training and put them in ./data/chipseq/
 
+The format of ChIP-seq labels (U/B stands for Unbound/Bound) is tab-separated as follows: 
 
+| chr   | start | stop | GM12878 | HeLa-S3 | 
+| ----- | ----- | ---- | ------- | ------- |
+| chr10 | 600   | 800  | U       | U       |
+| chr10 | 650   | 850  | B       | B       |
+| chr10 | 700   | 900  | B       | U       |
+| chr10 | 750   | 950  | U       | U       |
+
+**step1**. subsample labels (keep all Bound intervals and subsample the Unbound intervals)
+```
+perl ./train/create_sample.pl E2F1
+```
+
+**step2**. prepare the corresponding features based on the subsampled labels
+```
+perl ./train/prepare_data_F.pl E2F1
+```
+
+**step3**. model training (models of 1000 training iterations and their corresponding AUPRC scores are saved in ./model/F_all/)
+```
+cd ./train/F
+perl train_model_F.pl E2F1
+cd ../../
+```
+
+**step4**. select the best model from the 1000 iterations based on AUPRC; final models are saved in ./model/F/
+```
+perl ./train/find_best_model_F.pl
+```
 
 
