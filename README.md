@@ -42,7 +42,7 @@ git clone https://github.com/GuanLab/Anchor.git
 
 **Gencode**
 
-* ./data/ref/ [gencode.v19.annotation.gtf](https://www.gencodegenes.org/releases/19.html)
+* ./data/ref/[gencode.v19.annotation.gtf](ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_19/gencode.v19.annotation.gtf.gz)
 
 ## Prepare features and make predictions
 
