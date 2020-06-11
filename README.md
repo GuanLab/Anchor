@@ -8,6 +8,8 @@ see also: [Yuanfang Guan's 1st Place Solution](https://www.synapse.org/#!Synapse
 
 Please contact (gyuanfan@umich.edu or hyangl@umich.edu) if you have any questions or suggestions.
 
+The paper is published in Genome Research: Li H, Quang D, Guan Y.  2019.  Anchor: Trans-cell Type Prediction of Transcription Factor Binding Sites. Genome Research. 2019 Feb;29(2):281-292. doi: 10.1101/gr.237156.118. Epub 2018 Dec 19.
+
 ---
 
 ## Installation
